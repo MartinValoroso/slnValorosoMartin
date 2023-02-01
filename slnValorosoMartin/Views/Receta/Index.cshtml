@@ -1,0 +1,69 @@
+﻿@model IEnumerable<slnValorosoMartin.Models.Receta>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @Html.ActionLink("Nuevo","Create","Receta")
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(model=>model.TituloReceta)</th>
+            <th>@Html.DisplayNameFor(model=>model.Categoria)</th>
+            <th>@Html.DisplayNameFor(model=>model.instrucciones)</th>
+            <th>@Html.DisplayNameFor(model=>model.Autor)</th>
+            <th>@Html.DisplayNameFor(model=>model.Apellido)</th>
+            <th>@Html.DisplayNameFor(model=>model.Edad)</th>
+            <th>@Html.DisplayNameFor(model=>model.Email)</th>
+
+
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.TituloReceta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.Categoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.instrucciones)
+                </td>
+                     <td>
+                    @Html.DisplayFor(modelItem=>item.Autor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.Edad)
+                </td>
+                     <td>
+                    @Html.DisplayFor(modelItem=>item.Email)
+                </td>
+                <td>
+
+
+                </td>
+
+                <td>
+                    @Html.ActionLink("Detalle","Details","Receta",new{id=item.Id })
+                    @Html.ActionLink("Eliminar","Delete","Receta",new{id=item.Id })
+                </td>
+
+            </tr>
+
+        }
+
+    </table>
+
+
+</body>
+</html>

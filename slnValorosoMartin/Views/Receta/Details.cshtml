@@ -1,0 +1,57 @@
+﻿@model slnValorosoMartin.Models.Receta
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+    <h2>Ver detalle</h2>
+    @Html.ActionLink("Volver a Index", "Index", "Receta")
+
+    <p>
+        @Html.DisplayNameFor(model => model.TituloReceta)
+        @Html.DisplayFor(model => model.TituloReceta)
+
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.Categoria)
+        @Html.DisplayFor(model => model.Categoria)
+
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.Ingredientes)
+        @Html.DisplayFor(model => model.Ingredientes)
+
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.instrucciones)
+        @Html.DisplayFor(model => model.instrucciones)
+
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.Autor)
+        @Html.DisplayFor(model => model.Autor)
+
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.Apellido)
+        @Html.DisplayFor(model => model.Apellido)
+
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.Edad)
+        @Html.DisplayFor(model => model.Edad)
+
+    </p>
+    <p>
+        @Html.DisplayNameFor(model => model.Email)
+        @Html.DisplayFor(model => model.Email)
+
+    </p>
+</body>
+</html>
