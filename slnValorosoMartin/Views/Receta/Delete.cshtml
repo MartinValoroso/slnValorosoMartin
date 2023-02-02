@@ -1,12 +1,8 @@
 ﻿@model slnValorosoMartin.Models.Receta
-<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Delete";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
 
     
     <h2>@Model.TituloReceta</h2>
@@ -20,5 +16,4 @@
         @Html.ActionLink("Volver", "Index", "Receta")
 
     }
-</body>
-</html>
+

@@ -1,14 +1,9 @@
 ﻿@model slnValorosoMartin.Models.Receta
 
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+@{
+    ViewData["Title"] = "Details";
+}
 
     <h2>Ver detalle</h2>
     @Html.ActionLink("Volver a Index", "Index", "Receta")
@@ -53,5 +48,3 @@
         @Html.DisplayFor(model => model.Email)
 
     </p>
-</body>
-</html>

@@ -1,13 +1,9 @@
 ﻿@model slnValorosoMartin.Models.Receta
 
-<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Create";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
     <h1>Nueva Receta</h1>
     @using (Html.BeginForm("Create", "Receta", FormMethod.Post))
     {
@@ -59,5 +55,4 @@
 
         @Html.ActionLink("Volver a Index", "Index", "Receta")
     }
-</body>
-</html>
+
