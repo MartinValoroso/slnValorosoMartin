@@ -1,0 +1,24 @@
+﻿@model slnValorosoMartin.Models.Receta
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+
+    
+    <h2>@Model.TituloReceta</h2>
+    <p>Desea eliminar esta Receta?</p>
+
+    @using (Html.BeginForm("Delete", "Receta", FormMethod.Post))
+    {
+        
+        <input type="submit" action="Delete" />
+
+        @Html.ActionLink("Volver", "Index", "Receta")
+
+    }
+</body>
+</html>

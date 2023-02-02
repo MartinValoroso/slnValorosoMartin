@@ -4,21 +4,19 @@ namespace SistemaWebRecetas.Validations
 {
     public class CheckValidCategoriaAttribute : ValidationAttribute
     {
-        public CheckValidCategoriaAttribute()
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            ErrorMessage = "La categoria solo puede ser DESAYUNO";
-        }
-        public override bool IsValid(object value)
-        {
-            string categoria = (string)value;
-            if (categoria.ToUpper() == "DESAYUNO")
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
             {
-                return true;
+                return ValidationResult.Success;
             }
-            else
+
+            if (value.ToString() != "Desayuno")
             {
-                return false;
+                return new ValidationResult("Solo se permite ingresar la categoría Desayuno");
             }
+
+            return ValidationResult.Success;
         }
     }
 }

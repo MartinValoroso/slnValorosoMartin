@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using slnValorosoMartin.Data;
 using slnValorosoMartin.Models;
 using System.Linq;
@@ -56,24 +57,30 @@ namespace slnValorosoMartin.Controllers
         }
 
 
-        //**************** DETAILS *******************
+        //**************** FILTRO POR NOMBRE O APELLIDO *******************
 
-        //GET receta/deatalles/4
         [HttpGet]
-        public ActionResult Details(string apellido)
+        public ActionResult Filtro(string text)
         {
-            Receta receta = context.Recetas
+            var recetas = (from r in context.Recetas
+                           where text == r.Autor || text == r.Apellido
+                           select r).ToList();
+
+            return View("Index", recetas);
+        }
+        //*********** DETAILS ****************
+        [HttpGet]
+        public ActionResult Details(string title)
+        {
+            var receta = (from i in context.Recetas
+                          where title == i.TituloReceta
+                          select i).FirstOrDefault();
+
             if (receta == null)
-            {
                 return NotFound();
-            }
             else
-            {
                 return View("Details", receta);
-            }
-
-        } 
-
+        }
         //************** DELETE ******************
 
         // opera/delete/1
@@ -108,6 +115,27 @@ namespace slnValorosoMartin.Controllers
             }
 
 
+        }
+
+        // EDITAR 
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var receta = TraerUna(id);
+            return View("Edit", receta);
+        }
+
+        [HttpPost]
+        [ActionName("Edit")]
+        public ActionResult EditConfirmed(Receta receta)
+        {
+            if (!ModelState.IsValid) return BadRequest();
+
+            context.Entry(receta).State = EntityState.Modified;
+            context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace OperaWebSite.Controllers
 {
@@ -10,6 +11,13 @@ namespace OperaWebSite.Controllers
             
             return View();
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
     }
+
+    
 }
 
